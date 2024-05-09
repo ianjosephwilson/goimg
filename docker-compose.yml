@@ -1,0 +1,17 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  localgo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: localgo
+    hostname: localgo
+    networks:
+      - gonet
+    volumes:
+      - ./:/app
+
+networks:
+  gonet:
+    name: gonet
+    external: true
